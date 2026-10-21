@@ -1,1 +1,250 @@
+/* ==========================================
+   1. GLOBAL PAGE BASICS (The Baseline Setup)
+   ========================================== */
+  *, *::before, *::after {
+  box-sizing: border-box;
+} 
+ .content-sizing, 
+.border-sizing { 
 
+
+width: 300px; 
+
+padding: 20px; 
+
+border: 5px solid black; 
+
+background-color: lightgray; 
+
+margin-bottom: 10px; 
+
+}
+.content-sizing { 
+
+box-sizing: content-box; 
+} 
+
+.border-sizing { 
+
+box-sizing: border-box; 
+}
+.border-demo {
+border: 3px solid blue;
+}
+.border-demo {
+border: 3px solid blue;
+border-bottom: 6px dashed red;
+}
+
+
+/*display: inline-block; */
+.practice-nav { 
+
+
+display: flex; 
+
+flex-direction: column; 
+
+gap: 8px; 
+
+}
+@media (min-width: 768px) { 
+
+
+.practice-nav { 
+
+flex-direction: row; 
+
+justify-content: space-between; 
+
+
+
+} 
+@media (max-width: 900px) { 
+  .card-row { 
+    flex-direction: column; 
+    gap: 20px; 
+  } 
+
+  .card {
+    width: 100%; 
+  }
+}
+
+
+}@media (min-width: 1024px) { 
+
+
+.practice-nav { 
+gap: 32px; 
+
+
+} 
+
+}
+
+/*
+.card { 
+
+
+display: block; 
+
+width: 200px; 
+
+height: 100px; 
+
+background-color: lightgreen; 
+
+margin-top: 10px; 
+
+}*/
+body { 
+  font-family: Arial, Helvetica, sans-serif;
+  color: #333; 
+} 
+
+h1 { 
+  font-size: 32px; 
+}
+
+section {
+  padding: 16px;
+  margin-bottom: 24px;
+}
+
+/* This sets paragraphs to gray with clean margins */
+p { 
+  margin: 8px 0 16px;
+  font-size: 1rem;
+  color: gray; 
+} 
+
+/* ==========================================
+   2. REUSABLE LABEL & UTILITY CLASSES (Dots)
+   ========================================== */
+.section-label {
+  text-transform: uppercase;
+}
+
+.highlight { 
+  background-color: yellow; 
+  padding: 6px; 
+  color: blue; 
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.centered { 
+  text-align: center;  
+}
+
+.large {
+  font-size: 24px;                                        
+}
+
+/* ==========================================
+   3. ID SELECTORS (Unique Hashtag Blocks)
+   ========================================== */
+
+  #site-navigation ul li {
+    display: inline-block;
+   margin-right: 10px; /* Adds a clean 10px gap between each button block */
+
+  background-color: #f0f0f0;
+  padding: 10px;
+}
+
+#footer-copyright {
+  font-size: 12px;
+  color: #777;
+  text-align: center;
+}
+
+#page-title { 
+  text-align: center; 
+  border-bottom: 2px solid darkblue; 
+}
+
+/* ==========================================
+   4. LAYOUT BOX CONTAINERS
+   ========================================== */
+header {
+  background-color: #c38383;
+  color: #0d0f0f;
+  padding: 16px;
+}
+
+.parent { 
+  color: darkgreen; 
+  font-family: Georgia, serif; 
+  border: 2px solid darkgreen; 
+  padding: 20px; 
+}
+
+.container { 
+  border: 2px solid navy; 
+  color: navy; 
+} 
+
+.container p { 
+  border: initial; 
+}
+
+/* ==========================================
+   5. INTERACTIVE BUTTON LINKS (LVHA Hierarchy)
+   ========================================== */
+.button-link {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #0066cc;
+  color: white;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button-link:hover {
+  background-color: #004499;
+}
+
+.button-link:focus {
+  outline: 2px solid #004499;
+  outline-offset: 2px;
+}
+
+.button-link:active {
+  background-color: #002244;
+}
+
+/* ==========================================
+   6. NAVIGATION LINKS & GLOBAL OVERRIDES
+   ========================================== */
+.nav-link {
+  display: inline-block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #0066cc;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.nav-link:hover {
+  background-color: #0066cc;
+  color: white;
+}
+
+.nav-link:focus {
+  outline: 2px solid #0066cc;
+  outline-offset: 2px;
+}
+
+.nav-link:active {
+  background-color: #002244;
+  color: white;
+}
+
+/* Global catch-all hover rule at the absolute bottom */
+a:hover, button:hover, .button:hover {
+  background-color: #004499 !important; 
+  cursor: pointer;                      
+}

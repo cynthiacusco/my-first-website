@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lan="es">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta author="Cynthia Schubert">
+		<meta description="Página web de Cynthia Schubert">
+		<meta title="My First Web Page">
+		<link rel="stylesheet" href="css/styles.css">
+	</head>
+	<body>
+		<header>
+	<div class="content-sizing">Content-box</div> 
+			<div class="border-sizing">Border-box</div>
+			<div class="border-demo">Border example</div>
+			
+			<h1 class="highlight section-label"> <strong> My Favorite Activities</strong></h1>
+			<p>I enjoy spending time <em>indoors</em> and <a href="#learningnewskills">learning new skills</a></p>
+			<div class="container"> 
+				<p>This paragraph is inside the container.</p> 
+			</div>
+			<a href="#main-content">Skip to main content</a>
+			<nav id="site-navigation" aria-label="primary">	
+				<ul>
+					<li><a href="index.html" class="nav-link" aria-current="page"> Home</a></li>
+					<li><a href="about.html" class="nav-link" aria-label="About">About</a></li>
+					<li><a href="contact-us.html" class="nav-link">Contact</a></li>
+					<li><a href="play-list.html" class="nav-link">Play List</a></li>
+					<li><a href="payment.html" class="nav-link">Payment</a></li>
+				</ul>
+			</nav>
+		</header>
+		<main>
+			<main id="main-content">
+				<h2 id="page-title">Welcome to my web page</h2>
+				<p class="highlight">My name is Cynthia Schubert and I am currently studying computer science and I am interested in learning new skills. I enjoy spending time indoors and learning new skills. I also enjoy listening to music and watching movies.</p>
+			<section>
+				<figure>
+					<img src="images/Sammybig.jpg" alt="our Big Cat Sammy" width="600" height="300">
+					<figcaption>Our beloved cat, Sammy</figcaption>
+				</figure>
+				<h2 id="page-title">My Favorite indoor activities</h2>
+				<ul>
+					<li>Spending time with my husband and son</li>
+					<li>Watching movies</li>
+					<li>Playing board games</li>
+				</ul>
+				<aside>
+					<h3>My Favorite Show</h3>
+					<p> Chosen</p>
+				</aside>
+			</section>
+			<section>
+				<h2>About Me</h2>
+				<img src="images/decorative.png" alt="" width="600" height="100"> <br>
+				<a href="about.html">Learn more about me</a>
+			</section>
+			<article>
+				<section class="practice-area"> 
+
+
+<h2>Practice Area</h2> 
+
+<nav class="practice-nav"> 
+
+<a href="#">Home</a> 
+
+<a href="#">About</a> 
+
+<a href="#">Services</a> 
+
+<a href="#">Contact</a> 
+
+
+
+</nav> 
+
+<div class="card-row"> 
+
+
+<article class="card"> 
+
+<h3>Featured Item</h3> 
+
+<p>This card is used to test layout behavior.</p> 
+
+<button class="card-button">Learn More</button> 
+
+
+
+</article> 
+
+
+
+
+<article class="card"> 
+
+<h3>New Arrival</h3> 
+
+<p>This card gives you a second item to compare in the layout.</p> 
+
+<button class="card-button">View Details</button> 
+
+
+
+</article> 
+
+
+
+
+<article class="card"> 
+
+<h3>Popular Choice</h3> 
+
+<p>This card helps show how multiple items wrap and resize.</p> 
+
+<button class="card-button">Explore</button> 
+
+
+
+</article> 
+
+</div>
+</section>
+				<h2 id="learningnewskills">Learning new skills</h2>
+				<ol>
+					<li>Learning to code in html</li>
+					<li>Learning to code in css</li>
+					<li>Learning to code in javascript</li>
+				</ol>
+			</article>
+		<a href="#" class="button-link">Learn More</a>
+		</main>
+<form action="contact" method="post">
+	<fieldset style="display: inline-block;">
+		<legend>Contact Information</legend>
+		<label for="email">Email Address:</label>
+		<input type="email" id="email" name="email_address" required><br>
+		<label> Full Name
+			<input type="text" name="full_name" placeholder="Enter your full name" minlength="3" maxlength="50" required><br>
+		</label>
+		<label for="password">Password:</label>
+		<input type="password" id="password" name="password" placeholder="Enter your password" required	>
+		<button type="submit">Sign Up</button>
+	</fieldset>
+	<fieldset style="display: inline-block;">
+		<legend>Event Information</legend>
+		<label for="quantity">Quantity:</label>
+		<input type="number" id="quantity" name="quantity" min="1" max="10">
+		<label for="eventDate">Event Date:</label>
+		<input type="date" id="eventDate" name="event_date">
+		<button type="submit">Submit</button>
+	</fieldset>
+</form>
+		<footer>
+			<nav id="footer-copyright" aria-label="footer">
+				<ul>
+					<li><a href="privacy-policy.html">Privacy Policy</a></li>
+					<li><a href="terms-of-service.html">Terms of Service</a></li>
+				</ul>
+			</nav>
+			<p>Copyright &copy; 2024 Cynthia Schubert</p>
+		</footer>	
+
+	</body>
+</html>
