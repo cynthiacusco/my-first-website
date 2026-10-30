@@ -193,6 +193,13 @@ let hasPermission = true;
 let canProceed = isAuthenticated && (isAdmin || hasPermission); 
 
 console.log(canProceed);
+	let age = 17; 
+let hasParentConsent = true; 
+let minimumAge = 18; 
+
+let eligible = age >= minimumAge || (age >= 16 && hasParentConsent); 
+
+console.log(eligible);
 
 </script>
 	</body>
