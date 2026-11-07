@@ -43,22 +43,18 @@ if (actionButton) {
 const practiceButton = document.getElementById('practice-btn');
 
 if (practiceButton) {
-    // Action A: Hovering Over
     practiceButton.addEventListener('mouseover', function() {
         practiceButton.classList.add('highlight');
         practiceButton.textContent = 'Explore Our Products! 🚀';
     });
 
-    // Action B: Hovering Away
     practiceButton.addEventListener('mouseout', function() {
         practiceButton.classList.remove('highlight');
         practiceButton.textContent = 'Click Me';
     });
 
-    // Action C: Clicking (Your decision logic using .contains)
     practiceButton.addEventListener('click', function() {
         practiceButton.classList.toggle('highlight');
-        
         if (practiceButton.classList.contains('highlight')) {
             console.log("The button is now highlighted yellow! 🌟");
         } else {
@@ -75,10 +71,7 @@ const menu = document.querySelector('.menu');
 
 if (menuToggleButton && menu) {
     menuToggleButton.addEventListener('click', function() {
-        // 1. First, flip the 'open' class label on or off!
         menu.classList.toggle('open');
-        
-        // 2. NOW check the state immediately after the flip
         if (menu.classList.contains('open')) {
             console.log('Menu is open! 🔓');
         } else {
@@ -94,7 +87,7 @@ const notification = document.querySelector('.notification');
 const closeButton = document.querySelector('.close-btn');
 
 function dismissNotification() {
-    if (notification.classList.contains('visible')) {
+    if (notification && notification.classList.contains('visible')) {
         notification.classList.remove('visible');
         notification.classList.add('dismissed');
         console.log("Notification element has been safely dismissed! ❌");
@@ -113,7 +106,6 @@ const submitButton = document.querySelector('.button');
 if (submitButton) {
     submitButton.addEventListener('click', function() {
         submitButton.classList.toggle('loading');
-        
         if (submitButton.classList.contains('loading')) {
             console.log("State set: Loading... Processing task.");
         } else {
@@ -137,8 +129,6 @@ if (tooltip && trackingSection) {
         const bounds = trackingSection.getBoundingClientRect();
         const mouseX = event.clientX - bounds.left;
         const mouseY = event.clientY - bounds.top;
-
-        // Calculate and inject raw numeric strings directly as inline styles
         tooltip.style.left = (mouseX + 15) + 'px'; 
         tooltip.style.top = (mouseY + 15) + 'px';
     });
@@ -147,6 +137,7 @@ if (tooltip && trackingSection) {
         tooltip.style.display = 'none';
     });
 }
+
 // ==========================================
 // 9. Modal Window Fade Controller (Show & Hide)
 // ==========================================
@@ -154,81 +145,59 @@ const targetModal = document.getElementById('practice-modal');
 const openModalButton = document.getElementById('open-modal-btn');
 const closeModalButton = document.getElementById('close-modal-btn');
 
-// Safe activation functions using classList manipulation
-function revealModal() {
-    if (targetModal) {
+if (openModalButton && targetModal) {
+    openModalButton.addEventListener('click', function() {
         targetModal.classList.remove('hidden');
         console.log("Modal state update: Visible. 🔓");
-    }
-}
-
-function concealModal() {
-    if (targetModal) {
-        targetModal.classList.add('hidden');
-        console.log("Modal state update: Concealed. 🔒");
-    }
-}
-
-// Connect listeners to their corresponding buttons
-if (openModalButton && targetModal) {
-    openModalButton.addEventListener('click', revealModal);
+    });
 }
 
 if (closeModalButton && targetModal) {
-    closeModalButton.addEventListener('click', concealModal);
+    closeModalButton.addEventListener('click', function() {
+        targetModal.classList.add('hidden');
+        console.log("Modal state update: Concealed. 🔒");
+    });
 }
+
 // ==========================================
 // 10. Event Handling Basics ('click' Listener)
 // ==========================================
-
-// 1. Select the button with its unique ID tag
 const demoButton = document.querySelector('#demo-btn');
-
-// 2. Add an event listener that watches for a 'click'
 if (demoButton) {
     demoButton.addEventListener('click', function() {
-        // 3. Use console.log() to display a live message on your dashboard!
         console.log("Demo button click event was successfully handled! 🚀");
     });
 }
+
 // ==========================================
 // 11. Arrow Function Interaction Practice
 // ==========================================
 const subHeading = document.querySelector('h2');
-
 if (subHeading) {
-    // Look how short this is! () => replaces function()
     subHeading.addEventListener('click', () => {
         subHeading.style.color = 'darkorange';
         console.log("Subheading click handled smoothly using a shorthand arrow function! 🏹");
     });
 }
+
 // ==========================================
 // 12. Live Mouse Coordinates via Event Object
 // ==========================================
 const trackerBox = document.getElementById('tracker-box');
-
 if (trackerBox) {
-    // We catch the data package inside the parentheses using the letter 'e'
     trackerBox.addEventListener('mousemove', function(e) {
-        // We pull the live X and Y pixel positions out of the 'e' object package
         const xPosition = e.clientX;
         const yPosition = e.clientY;
-        
-        // Update the plain words inside the box to show the numbers live!
         trackerBox.textContent = `Mouse X: ${xPosition}px | Mouse Y: ${yPosition}px`;
     });
 }
+
 // ==========================================
 // 13. Dynamic Target Tracking (event.target)
 // ==========================================
 document.addEventListener('click', function(event) {
-    // 1. Grab the exact HTML element tag that was clicked
     const clickedElement = event.target;
-    
-    // 2. Grab its official tag type name (like BUTTON, P, or H2)
     const tagNameType = event.target.tagName;
-    
     console.log("🎯 Exact Element Interacted With:", clickedElement);
     console.log("🏷️ HTML Tag Type Name:", tagNameType);
 });
@@ -237,13 +206,55 @@ document.addEventListener('click', function(event) {
 // 14. Keyboard Escape Window Closure Logic
 // ==========================================
 document.addEventListener('keydown', function(event) {
-    // Check if the physical key string matches 'Escape' exactly
     if (event.key === 'Escape') {
         const modalPlaygroundWindow = document.getElementById('practice-modal');
-        
         if (modalPlaygroundWindow && !modalPlaygroundWindow.classList.contains('hidden')) {
             modalPlaygroundWindow.classList.add('hidden');
             console.log("🔒 Pop-up box closed safely using the keyboard 'Escape' shortcut rule!");
         }
     }
 });
+
+// ==========================================
+// 15. Form Elements Collection Lookup & Validation Script
+// ==========================================
+const profileForm = document.getElementById('practice-form');
+
+if (profileForm) {
+    profileForm.addEventListener('submit', function(event) {
+        // Blocks the default browser reload loop immediately!
+        event.preventDefault();
+        
+        console.log("🚀 Profile submit caught! Processing elements grid...");
+        
+        // Extract values cleanly out of the mailbox grid collection
+        const emailValue = profileForm.elements['email'].value;
+        const enteredFirst = profileForm.elements['first-name'].value;
+        const enteredLast = profileForm.elements['last-name'].value;
+        
+        console.log(`👤 Extracted Data Match -> Name: ${enteredFirst} ${enteredLast} | Email: ${emailValue}`);
+        
+        // Validation Checks
+        const isValidEmail = emailValue.includes('@');
+        
+        // Email Input Styling Logic
+        if (isValidEmail) {
+            profileForm.elements['email'].style.border = "3px solid #28a745";
+            console.log("✅ Email validation passed.");
+        } else {
+            profileForm.elements['email'].style.border = "3px solid #dc3545";
+            console.log("❌ Email validation failed: Missing '@' character symbol.");
+        }
+        
+        // Name Field Input Styling Logic
+        if (enteredFirst && enteredLast) {
+            profileForm.elements['first-name'].style.border = "2px solid #28a745";
+            profileForm.elements['last-name'].style.border = "2px solid #28a745";
+            console.log("✅ Name registration fields validated successfully.");
+        } else {
+            if (!enteredFirst) profileForm.elements['first-name'].style.border = "2px solid #dc3545";
+            if (!enteredLast) profileForm.elements['last-name'].style.border = "2px solid #dc3545";
+            console.log("❌ Validation Error: Name values cannot be submitted blank.");
+        }
+    });
+}

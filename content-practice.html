@@ -3,8 +3,7 @@
 <head> 
     <meta charset="UTF-8"> 
     <title>Content Practice</title> 
-      <link rel="stylesheet" href="css/styles.css">
-    <!-- If you have a separate style sheet linked, it should be right here -->
+    <link rel="stylesheet" href="css/styles.css">
 </head> 
 <body> 
 
@@ -22,69 +21,97 @@
         <p>Testing out my JavaScript selectors and styles.</p>
         <button id="practice-btn">Click Me</button>
     </section>
-  <!-- Your existing menu section -->
-<button id="menu-toggle">Toggle Menu Drawer</button>
 
-<div class="menu">
-    <p>Menu Links Go Here</p>
-</div>
+    <!-- Menu Drawer Section -->
+    <button id="menu-toggle">Toggle Menu Drawer</button>
+    <div class="menu">
+        <p>Menu Links Go Here</p>
+    </div>
 
-<!-- PLACE NEW NOTIFICATION CODE HERE (AFTER THE MENU) -->
-<div class="notification visible">
-    <span>⚠️ You have unsaved changes in your practice layout!</span>
-    <button class="close-btn">X</button>
-</div>
-<!-- PLACE THIS BELOW YOUR NOTIFICATION BANNER INSIDE content-practice.html -->
+    <!-- Notification Alert Section -->
+    <div class="notification visible">
+        <span>⚠️ You have unsaved changes in your practice layout!</span>
+        <button class="close-btn">X</button>
+    </div>
 
-<!-- Tool 1 Layout: Predefined State Switching (Loading Button) -->
-<section>
-    <h2>Lesson Practice: State Classes</h2>
-    <p>Click the button below to trigger a pre-made CSS loading state.</p>
-    <button class="button">Submit Application</button>
-</section>
+    <!-- State Classes Practice Section -->
+    <section>
+        <h2>Lesson Practice: State Classes</h2>
+        <p>Click the button below to trigger a pre-made CSS loading state.</p>
+        <button class="button">Submit Application</button>
+    </section>
 
-<!-- Tool 2 Layout: Inline Styles Calculator (Live Box Track) -->
-<section style="position: relative; min-height: 200px;">
-    <h2>Lesson Practice: Inline Styles Calculator</h2>
-    <p>Move your mouse inside this area to see a tooltip follow your exact pixel position calculated by JavaScript!</p>
-    <div class="tooltip">Tooltip Box</div>
-</section>
-<!-- Place this inside content-practice.html -->
-<section>
-    <h2>Lesson Practice: Event Handling Basics</h2>
-    <p>Click the button below to send a live click event notification to the console dashboard.</p>
-    <button id="demo-btn">Click me</button>
-</section>
+    <!-- Inline Styles Calculator Section -->
+    <section style="position: relative; min-height: 200px;">
+        <h2>Lesson Practice: Inline Styles Calculator</h2>
+        <p>Move your mouse inside this area to see a tooltip follow your exact pixel position calculated by JavaScript!</p>
+        <div class="tooltip">Tooltip Box</div>
+    </section>
 
-<!-- Inside content-practice.html (Place below your notification section) -->
-<section>
-    <h2>Lesson Practice: Show & Hide Modal</h2>
-    <button id="open-modal-btn">Show Pop-up Box</button>
+    <!-- Event Handling Basics Section -->
+    <section>
+        <h2>Lesson Practice: Event Handling Basics</h2>
+        <p>Click the button below to send a live click event notification to the console dashboard.</p>
+        <button id="demo-btn">Click me</button>
+    </section>
 
-    <!-- The Pop-up Overlay Backdrop -->
-    <div id="practice-modal" class="modal hidden">
-        <div class="modal-content">
-            <h3>Custom Modal Window! 🎁</h3>
-            <p>This box fades in and out smoothly using CSS transitions and JavaScript class management.</p>
-            <button id="close-modal-btn">Close Window</button>
+    <!-- Show & Hide Modal Popup Section -->
+    <section>
+        <h2>Lesson Practice: Show & Hide Modal</h2>
+        <button id="open-modal-btn">Show Pop-up Box</button>
+
+        <div id="practice-modal" class="modal hidden">
+            <div class="modal-content">
+                <h3>Custom Modal Window! 🎁</h3>
+                <p>This box fades in and out smoothly using CSS transitions and JavaScript class management.</p>
+                <button id="close-modal-btn">Close Window</button>
+            </div>
         </div>
-    </div>
-</section>
-<!-- Place at the bottom of content-practice.html -->
-<section>
-    <h2>Lesson Practice: Live Coordinate Tracker</h2>
-    <p>Move your mouse around this box to watch JavaScript pull live data out of the event object!</p>
-    <div id="tracker-box" style="padding: 40px; background-color: #FFFFFF; border: 2px dashed #ccc; text-align: center; font-size: 20px;">
-        Move mouse here to start tracking...
-    </div>
-</section>
+    </section>
 
+    <!-- Live Coordinate Tracker Section -->
+    <section>
+        <h2>Lesson Practice: Live Coordinate Tracker</h2>
+        <p>Move your mouse around this box to watch JavaScript pull live data out of the event object!</p>
+        <div id="tracker-box" style="padding: 40px; background-color: #FFFFFF; border: 2px dashed #ccc; text-align: center; font-size: 20px; color: #2F2A26;">
+            Move mouse here to start tracking...
+        </div>
+    </section>
 
+    <!-- Form Events & Elements Validation Section -->
+    <section>
+        <h2>Lesson Practice: Form Events & Validation</h2>
+        <p>Fill out the fields below to see live input checking and submission tracking on your dashboard.</p>
+        
+        <!-- FIXED: Added explicit id="practice-form" match attribute -->
+        <form id="practice-form" novalidate>
+            <fieldset style="background-color: #FFFFFF; border: 2px solid #2F2A26; padding: 20px; border-radius: 8px;">
+                <legend style="font-weight: bold; padding: 0 10px; color: #2F2A26;">Practice Registration</legend>
+                
+                <!-- Email Field -->
+                <div style="margin-bottom: 16px;">
+                    <label style="display: block; font-weight: 600; margin-bottom: 4px; color: #2F2A26;">Email Address:</label>
+                    <input type="email" name="email" placeholder="name@example.com">
+                </div>
 
+                <!-- First Name Field -->
+                <div style="margin-bottom: 12px;">
+                    <label style="display: block; font-weight: 600; margin-bottom: 4px; color: #2F2A26;">First Name:</label>
+                    <input type="text" name="first-name" placeholder="Enter first name">
+                </div>
 
+                <!-- Last Name Field -->
+                <div style="margin-bottom: 16px;">
+                    <label style="display: block; font-weight: 600; margin-bottom: 4px; color: #2F2A26;">Last Name:</label>
+                    <input type="text" name="last-name" placeholder="Enter last name">
+                </div>
+                
+                <button type="submit" class="button">Submit Application</button>
+            </fieldset>
+        </form>
+    </section>
 
-    <!-- This cleanly links to your external JavaScript file at the very bottom -->
+    <!-- External Script Bridge Link -->
     <script src="js/content-practice.js"></script> 
-
 </body> 
 </html>
