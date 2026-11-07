@@ -1,250 +1,375 @@
-/* ==========================================
-   1. GLOBAL PAGE BASICS (The Baseline Setup)
-   ========================================== */
-  *, *::before, *::after {
+@import url('https://googleapis.com');
+
+*, *::before, *::after {
   box-sizing: border-box;
-} 
- .content-sizing, 
-.border-sizing { 
-
-
-width: 300px; 
-
-padding: 20px; 
-
-border: 5px solid black; 
-
-background-color: lightgray; 
-
-margin-bottom: 10px; 
-
-}
-.content-sizing { 
-
-box-sizing: content-box; 
-} 
-
-.border-sizing { 
-
-box-sizing: border-box; 
-}
-.border-demo {
-border: 3px solid blue;
-}
-.border-demo {
-border: 3px solid blue;
-border-bottom: 6px dashed red;
 }
 
-
-/*display: inline-block; */
-.practice-nav { 
-
-
-display: flex; 
-
-flex-direction: column; 
-
-gap: 8px; 
-
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+  font-family: 'Roboto', sans-serif;
+  background-color: #FFF8F0; /* Color 1: Soft Warm Ivory Page Background */
+  color: #2F2A26;            /* Color 2: Dark Charcoal Body Text */
+  font-size: 16px;
+  line-height: 1.6;
 }
-@media (min-width: 768px) { 
 
+/* ==========================================
+   1. HEADER & NAVIGATION LAYOUT
+   ========================================== */
+header {
+  background-color: #0bc4a3; /* Color 3: Vibrant Brand Aqua Green */
+  padding: 16px 16px;        /* Tighter padding to save vertical space */
+  display: flex;
+  flex-direction: column;    /* Stacks elements vertically */
+  align-items: center;
+  justify-content: center;
+  gap: 12px;                
+  width: 100% !important;    
+  margin: 0;
+}
 
-.practice-nav { 
+.header-top-row {
+  display: flex;
+  flex-direction: column;    /* Stack logo on top of text on mobile screens */
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
 
-flex-direction: row; 
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0 !important; 
+}
 
-justify-content: space-between; 
+.logo-img {
+  width: 120px !important;   
+  height: auto;
+  display: block;
+}
 
+header h1 {
+  font-family: 'Playfair Display', serif; /* Font 1: Heading Font */
+  font-size: clamp(1.6rem, 5vw, 2.5rem); 
+  font-weight: 800;          
+  color: #FFF8F0;           
+  margin: 0;
+  text-align: center;        
+  line-height: 1.2;
+  width: 100%;
+}
 
+header nav {
+  width: 100%;
+  display: flex;
+  justify-content: center;   
+}
 
-} 
-@media (max-width: 900px) { 
-  .card-row { 
-    flex-direction: column; 
-    gap: 20px; 
-  } 
+header nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: row;       
+  flex-wrap: wrap;          
+  justify-content: center;   
+  gap: 12px;
+  width: 100%;
+}
 
-  .card {
-    width: 100%; 
+header nav ul li a {
+  display: inline-block;
+  padding: 10px 20px;       
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif; /* Font 2: Body/Interface Font */
+  font-weight: 600;
+  font-size: 16px;
+  color: #2F2A26;           
+  background-color: #F7F4EB; 
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+}
+
+header nav ul li a:hover {
+  background-color: #E9E4D5 !important; /* dark cream on hover */
+  color: #2F2A26 !important;
+}
+
+header nav ul li a[aria-current="page"] {
+  background-color: #E9E4D5 !important; /* Highlights active tab background */
+  font-weight: 700;
+  color: #2F2A26 !important;
+}
+
+/* DESKTOP RESPONSIVE LAYOUT (MIN-WIDTH: 768px) */
+@media (min-width: 768px) {
+  header {
+    padding: 20px 40px;      
+  }
+
+  .header-top-row {
+    flex-direction: row;     
+    justify-content: flex-start; 
+    align-items: center;         
+    width: 100%;
+  }
+
+  .logo-container {
+    width: 150px;
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  header h1 {
+    text-align: center;      
+    flex-grow: 1;                
+    margin-right: 150px;   
+    width: max-content;      
+    max-height: 50px;       
+    padding: 0;
+  }
+
+  header nav {
+    margin-top: 4px;         
+    width: 100%;
   }
 }
 
-
-}@media (min-width: 1024px) { 
-
-
-.practice-nav { 
-gap: 32px; 
-
-
-} 
-
-}
-
-/*
-.card { 
-
-
-display: block; 
-
-width: 200px; 
-
-height: 100px; 
-
-background-color: lightgreen; 
-
-margin-top: 10px; 
-
-}*/
-body { 
-  font-family: Arial, Helvetica, sans-serif;
-  color: #333; 
-} 
-
-h1 { 
-  font-size: 32px; 
+/* ==========================================
+   2. MAIN CONTENT CARD CONTAINERS
+   ========================================== */
+main {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 16px;
 }
 
 section {
-  padding: 16px;
-  margin-bottom: 24px;
+  padding: 32px 24px;        
+  max-width: 900px;          
+  margin: 32px auto;         /* Centers content containers horizontally */
+  width: 92%;                
+  background-color: #FFF2CC; 
+  color: #2F2A26;            
+  border: 4px solid #FFFFFF; 
+  border-radius: 12px;      
+  box-shadow: 0 8px 20px rgba(47, 42, 38, 0.08); 
 }
 
-/* This sets paragraphs to gray with clean margins */
-p { 
-  margin: 8px 0 16px;
-  font-size: 1rem;
-  color: gray; 
-} 
+/* General H2 Headlines */
+h2 {
+  font-family: 'Playfair Display', serif; 
+  font-size: clamp(1.8rem, 4vw, 2.2rem);  
+  font-weight: 800;
+  color: #2F2A26;                         
+  margin-top: 24px;
+  margin-bottom: 16px;
+  line-height: 1.3;
+  text-align: left;                       
+  padding: 12px 20px;
+  background-color: #FFF2CC; /* Matching Soft Yellow/Cream */
+  border: 2px solid #FFFFFF; 
+  border-radius: 8px;        
+  box-shadow: 0 4px 10px rgba(47, 42, 38, 0.05); 
+}
+
+/* Target H2 elements that sit inside a section card container */
+section h2 {
+  font-family: 'Playfair Display', serif; 
+  font-size: 28px;
+  font-weight: 800;
+  color: #2F2A26;            
+  margin-top: 0;
+  margin-bottom: 16px;
+  border-bottom: 2px solid rgba(47, 42, 38, 0.15); /* Clean divider line */
+  padding-bottom: 8px;
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+section p {
+  max-width: 750px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+section strong, section b {
+  color: #2F2A26;            
+  font-weight: 700;
+  font-size: 1.1rem;         
+}
+
+section ul {
+  padding-left: 20px;
+  margin: 12px 0 0 0;
+}
+
+section li {
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+section img, section video {
+  max-width: 100% !important; 
+  height: auto;
+  display: block;
+  margin: 20px auto;         
+  border-radius: 8px;
+  border: 2px solid #FFFFFF;  
+}
 
 /* ==========================================
-   2. REUSABLE LABEL & UTILITY CLASSES (Dots)
+   3. FORMS & INPUT FIELDSETS
    ========================================== */
-.section-label {
-  text-transform: uppercase;
+fieldset {
+  border: 2px solid #2F2A26; 
+  border-radius: 8px;
+  padding: 20px;
+}
+
+input[type="text"], input[type="email"], select, textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 4px;
+  border: 1px solid #2F2A26;
+  border-radius: 4px;
+}
+
+/* ==========================================
+   4. JAVASCRIPT ACTIVE HOVER & CLICK HIGHLIGHTS
+   ========================================== */
+.home-highlight {
+  background-color: #0bc4a3 !important; 
+  color: #FFFFFF !important;            
+  font-weight: bold;
+  border: 2px solid #2F2A26 !important;
 }
 
 .highlight { 
-  background-color: yellow; 
-  padding: 6px; 
-  color: blue; 
-}
-
-.bold {
-  font-weight: bold;
-}
-
-.centered { 
-  text-align: center;  
-}
-
-.large {
-  font-size: 24px;                                        
-}
-
-/* ==========================================
-   3. ID SELECTORS (Unique Hashtag Blocks)
-   ========================================== */
-
-  #site-navigation ul li {
-    display: inline-block;
-   margin-right: 10px; /* Adds a clean 10px gap between each button block */
-
-  background-color: #f0f0f0;
-  padding: 10px;
-}
-
-#footer-copyright {
-  font-size: 12px;
-  color: #777;
-  text-align: center;
-}
-
-#page-title { 
-  text-align: center; 
-  border-bottom: 2px solid darkblue; 
-}
-
-/* ==========================================
-   4. LAYOUT BOX CONTAINERS
-   ========================================== */
-header {
-  background-color: #c38383;
-  color: #0d0f0f;
-  padding: 16px;
-}
-
-.parent { 
-  color: darkgreen; 
-  font-family: Georgia, serif; 
-  border: 2px solid darkgreen; 
-  padding: 20px; 
-}
-
-.container { 
-  border: 2px solid navy; 
-  color: navy; 
+  background-color: yellow !important; 
+  color: #2F2A26 !important;
 } 
 
-.container p { 
-  border: initial; 
+.dim { 
+  background-color: gray !important; 
+  opacity: 0.6; 
 }
 
 /* ==========================================
-   5. INTERACTIVE BUTTON LINKS (LVHA Hierarchy)
+   5. SANDBOX PRACTICE: STYLES VS CLASSES
    ========================================== */
-.button-link {
-  display: inline-block;
-  padding: 12px 24px;
-  background-color: #0066cc;
-  color: white;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.button-link:hover {
-  background-color: #004499;
-}
-
-.button-link:focus {
-  outline: 2px solid #004499;
-  outline-offset: 2px;
-}
-
-.button-link:active {
-  background-color: #002244;
-}
-
-/* ==========================================
-   6. NAVIGATION LINKS & GLOBAL OVERRIDES
-   ========================================== */
-.nav-link {
-  display: inline-block;
+.button {
   padding: 10px 20px;
-  text-decoration: none;
-  color: #0066cc;
-  transition: background-color 0.2s, color 0.2s;
+  background-color: #007bff !important; /* Forces it to turn bright blue over defaults */
+  color: white !important;
+  border: none !important;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
 }
 
-.nav-link:hover {
-  background-color: #0066cc;
-  color: white;
+.button.loading {
+  background-color: #6c757d !important; /* Muted Gray State */
+  cursor: wait !important;              /* Spinning wheel tracker */
 }
 
-.nav-link:focus {
-  outline: 2px solid #0066cc;
-  outline-offset: 2px;
+.button.loading::after {
+  content: ' Loading...';
 }
 
-.nav-link:active {
-  background-color: #002244;
-  color: white;
+.tooltip {
+  position: absolute;
+  padding: 6px 12px;
+  background-color: #2F2A26; 
+  color: #FFF8F0;            
+  border-radius: 4px;
+  font-size: 14px;
+  pointer-events: none;      
+  display: none;             
 }
 
-/* Global catch-all hover rule at the absolute bottom */
-a:hover, button:hover, .button:hover {
-  background-color: #004499 !important; 
-  cursor: pointer;                      
+/* Notification dismissal helper styling */
+.notification {
+  padding: 16px;
+  margin: 20px auto;
+  max-width: 900px;
+  width: 92%;
+  background-color: #ffcccc; 
+  color: #800000;            
+  border: 2px solid #ff9999;
+  border-radius: 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.notification.dismissed {
+  opacity: 0;
+  transform: translateY(-20px);
+  pointer-events: none; 
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-weight: bold;
+  color: #800000;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* ... your existing code above ... */
+
+/* ==========================================
+   6. LESSON PRACTICE: MODAL SHOW & HIDE
+   ========================================== */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(47, 42, 38, 0.6); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 1;
+  transition: opacity 0.4s ease; 
+}
+
+.modal.hidden {
+  opacity: 0 !important;
+  pointer-events: none !important; 
+}
+
+.modal-content {
+  background-color: #FFFFFF;
+  padding: 32px;
+  border-radius: 12px;
+  max-width: 450px;
+  width: 85%;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================================
+   6. GLOBAL PAGE FOOTER (Keep this at the very bottom)
+   ========================================== */
+footer {
+  background-color: #2F2A26;   
+  color: #FFF8F0;
+  text-align: center;
+  padding: 16px;
+  margin-top: 32px;
+  width: 100%;
 }

@@ -1,21 +1,90 @@
 <!DOCTYPE html> 
 <html lang="en"> 
 <head> 
-
-
-<meta charset="UTF-8"> 
-
-<title>Content Practice</title> 
-
+    <meta charset="UTF-8"> 
+    <title>Content Practice</title> 
+      <link rel="stylesheet" href="css/styles.css">
+    <!-- If you have a separate style sheet linked, it should be right here -->
 </head> 
 <body> 
 
+    <h2 id="title">Original Title</h2> 
+    <p id="message">This is the original message.</p> 
 
-<h2 id="title">Original Title</h2> 
+    <section id="news"></section>
+    
+    <img id="photo" src="https://placehold.co" alt="A sleeping cat">
+    
+    <button id="action-btn" data-action="save" data-target="form1">Save</button>
 
-<p id="message">This is the original message.</p> 
+    <section>
+        <h2>Practice Section</h2>
+        <p>Testing out my JavaScript selectors and styles.</p>
+        <button id="practice-btn">Click Me</button>
+    </section>
+  <!-- Your existing menu section -->
+<button id="menu-toggle">Toggle Menu Drawer</button>
 
-<script src="js/content-practice.js"></script> 
+<div class="menu">
+    <p>Menu Links Go Here</p>
+</div>
+
+<!-- PLACE NEW NOTIFICATION CODE HERE (AFTER THE MENU) -->
+<div class="notification visible">
+    <span>⚠️ You have unsaved changes in your practice layout!</span>
+    <button class="close-btn">X</button>
+</div>
+<!-- PLACE THIS BELOW YOUR NOTIFICATION BANNER INSIDE content-practice.html -->
+
+<!-- Tool 1 Layout: Predefined State Switching (Loading Button) -->
+<section>
+    <h2>Lesson Practice: State Classes</h2>
+    <p>Click the button below to trigger a pre-made CSS loading state.</p>
+    <button class="button">Submit Application</button>
+</section>
+
+<!-- Tool 2 Layout: Inline Styles Calculator (Live Box Track) -->
+<section style="position: relative; min-height: 200px;">
+    <h2>Lesson Practice: Inline Styles Calculator</h2>
+    <p>Move your mouse inside this area to see a tooltip follow your exact pixel position calculated by JavaScript!</p>
+    <div class="tooltip">Tooltip Box</div>
+</section>
+<!-- Place this inside content-practice.html -->
+<section>
+    <h2>Lesson Practice: Event Handling Basics</h2>
+    <p>Click the button below to send a live click event notification to the console dashboard.</p>
+    <button id="demo-btn">Click me</button>
+</section>
+
+<!-- Inside content-practice.html (Place below your notification section) -->
+<section>
+    <h2>Lesson Practice: Show & Hide Modal</h2>
+    <button id="open-modal-btn">Show Pop-up Box</button>
+
+    <!-- The Pop-up Overlay Backdrop -->
+    <div id="practice-modal" class="modal hidden">
+        <div class="modal-content">
+            <h3>Custom Modal Window! 🎁</h3>
+            <p>This box fades in and out smoothly using CSS transitions and JavaScript class management.</p>
+            <button id="close-modal-btn">Close Window</button>
+        </div>
+    </div>
+</section>
+<!-- Place at the bottom of content-practice.html -->
+<section>
+    <h2>Lesson Practice: Live Coordinate Tracker</h2>
+    <p>Move your mouse around this box to watch JavaScript pull live data out of the event object!</p>
+    <div id="tracker-box" style="padding: 40px; background-color: #FFFFFF; border: 2px dashed #ccc; text-align: center; font-size: 20px;">
+        Move mouse here to start tracking...
+    </div>
+</section>
+
+
+
+
+
+    <!-- This cleanly links to your external JavaScript file at the very bottom -->
+    <script src="js/content-practice.js"></script> 
 
 </body> 
 </html>
