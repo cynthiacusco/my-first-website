@@ -274,3 +274,22 @@ if (profileForm) {
         }
     });
 }
+// ==========================================
+// 16. Show & Hide UI Toggle Pattern
+// ==========================================
+const revealButton = document.getElementById('reveal');
+const tipParagraph = document.getElementById('tip');
+
+if (revealButton && tipParagraph) {
+    revealButton.addEventListener('click', function() {
+        // ONE LINE ENGINE: Flips the hidden layout rule on and off!
+        tipParagraph.classList.toggle('hidden');
+        
+        // Dynamically update the button label text to match what is on screen
+        if (tipParagraph.classList.contains('hidden')) {
+            revealButton.textContent = "Show Tip";
+        } else {
+            revealButton.textContent = "Hide Tip";
+        }
+    });
+}

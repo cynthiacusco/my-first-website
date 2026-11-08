@@ -256,6 +256,11 @@ input[type="text"], input[type="email"], select, textarea {
   background-color: yellow !important; 
   color: #2F2A26 !important;
 } 
+/* Inside css/styles.css */
+.hidden {
+  display: none !important;
+}
+
 
 .dim { 
   background-color: gray !important; 
