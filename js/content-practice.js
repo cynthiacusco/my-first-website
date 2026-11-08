@@ -216,45 +216,61 @@ document.addEventListener('keydown', function(event) {
 });
 
 // ==========================================
-// 15. Form Elements Collection Lookup & Validation Script
+// 15. Advanced Checklist Form Validation Script
 // ==========================================
 const profileForm = document.getElementById('practice-form');
 
+// Our reusable checklist inspector function
+function validateSandboxForm() {
+    const emailValue = profileForm.elements['email'].value;
+    const firstNameValue = profileForm.elements['first-name'].value;
+    const lastNameValue = profileForm.elements['last-name'].value;
+    const passwordValue = profileForm.elements['password'].value;
+    const confirmPasswordValue = profileForm.elements['confirm-password'].value;
+
+    // Rule 1: Check if Name fields are empty (using .trim())
+    if (firstNameValue.trim() === '' || lastNameValue.trim() === '') {
+        return { valid: false, message: 'First name and last name are strictly required!' };
+    }
+
+    // Rule 2: Check if email is empty
+    if (emailValue.trim() === '') {
+        return { valid: false, message: 'Email address cannot be submitted empty!' };
+    }
+
+    // Rule 3: Check if email has the @ symbol format
+    if (!emailValue.includes('@')) {
+        return { valid: false, message: 'Please enter a valid email address containing an @ symbol.' };
+    }
+
+    // Rule 4: Enforce minimum length on password
+    if (passwordValue.length < 8) {
+        return { valid: false, message: 'Security check failed: Password must be at least 8 characters long.' };
+    }
+
+    // Rule 5: Compare password values to ensure they match
+    if (passwordValue !== confirmPasswordValue) {
+        return { valid: false, message: 'Verification error: Passwords do not match!' };
+    }
+
+    // Success: If it passes all if statements, return true!
+    return { valid: true, message: 'All checks passed successfully! 🚀' };
+}
+
+// Attach the inspector execution to our submit action
 if (profileForm) {
     profileForm.addEventListener('submit', function(event) {
-        // Blocks the default browser reload loop immediately!
-        event.preventDefault();
+        event.preventDefault(); // Freeze the default reload shield
         
-        console.log("🚀 Profile submit caught! Processing elements grid...");
+        console.log("🚀 Running security checklist...");
         
-        // Extract values cleanly out of the mailbox grid collection
-        const emailValue = profileForm.elements['email'].value;
-        const enteredFirst = profileForm.elements['first-name'].value;
-        const enteredLast = profileForm.elements['last-name'].value;
+        // Run our checklist function and store the object status package
+        const resultPackage = validateSandboxForm();
         
-        console.log(`👤 Extracted Data Match -> Name: ${enteredFirst} ${enteredLast} | Email: ${emailValue}`);
-        
-        // Validation Checks
-        const isValidEmail = emailValue.includes('@');
-        
-        // Email Input Styling Logic
-        if (isValidEmail) {
-            profileForm.elements['email'].style.border = "3px solid #28a745";
-            console.log("✅ Email validation passed.");
+        if (resultPackage.valid === false) {
+            console.log("❌ INSPECTION FAILED: " + resultPackage.message);
         } else {
-            profileForm.elements['email'].style.border = "3px solid #dc3545";
-            console.log("❌ Email validation failed: Missing '@' character symbol.");
-        }
-        
-        // Name Field Input Styling Logic
-        if (enteredFirst && enteredLast) {
-            profileForm.elements['first-name'].style.border = "2px solid #28a745";
-            profileForm.elements['last-name'].style.border = "2px solid #28a745";
-            console.log("✅ Name registration fields validated successfully.");
-        } else {
-            if (!enteredFirst) profileForm.elements['first-name'].style.border = "2px solid #dc3545";
-            if (!enteredLast) profileForm.elements['last-name'].style.border = "2px solid #dc3545";
-            console.log("❌ Validation Error: Name values cannot be submitted blank.");
+            console.log("✅ INSPECTION PASSED: " + resultPackage.message);
         }
     });
 }

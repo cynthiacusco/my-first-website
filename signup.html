@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <style>
+        body { font-family: sans-serif; max-width: 400px; margin: 40px auto; padding: 20px; }
+        .form-group { margin-bottom: 12px; }
+        label { display: block; margin-bottom: 4px; font-weight: bold; }
+        input { width: 100%; padding: 8px; box-sizing: border-box; border: 1px solid #ccc; border-radius: 4px; }
+        .error-message { color: red; font-size: 0.875rem; display: block; margin-top: 4px; min-height: 18px; }
+        .input-error { border: 2px solid red !important; background-color: #fff6f6; }
+        button { padding: 10px 20px; background-color: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; width: 100%; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Sign Up</h1>
+    <form id="signup-form" novalidate>
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username">
+            <span class="error-message" id="username-error"></span>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email">
+            <span class="error-message" id="email-error"></span>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password">
+            <span class="error-message" id="password-error"></span>
+        </div>
+        <button type="submit">Sign Up</button>
+    </form>
+    
+    <!-- Direct link to your new script folder setup -->
+    <script src="js/signup.js"></script>
+</body>
+</html>

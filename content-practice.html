@@ -78,12 +78,11 @@
         </div>
     </section>
 
-    <!-- Form Events & Elements Validation Section -->
+        <!-- Form Events & Elements Validation Section -->
     <section>
         <h2>Lesson Practice: Form Events & Validation</h2>
         <p>Fill out the fields below to see live input checking and submission tracking on your dashboard.</p>
         
-        <!-- FIXED: Added explicit id="practice-form" match attribute -->
         <form id="practice-form" novalidate>
             <fieldset style="background-color: #FFFFFF; border: 2px solid #2F2A26; padding: 20px; border-radius: 8px;">
                 <legend style="font-weight: bold; padding: 0 10px; color: #2F2A26;">Practice Registration</legend>
@@ -104,6 +103,18 @@
                 <div style="margin-bottom: 16px;">
                     <label style="display: block; font-weight: 600; margin-bottom: 4px; color: #2F2A26;">Last Name:</label>
                     <input type="text" name="last-name" placeholder="Enter last name">
+                </div>
+                
+                <!-- PASTED HERE: Password Field -->
+                <div style="margin-bottom: 12px;">
+                    <label style="display: block; font-weight: 600; margin-bottom: 4px; color: #2F2A26;">Password (Min 8 Characters):</label>
+                    <input type="password" name="password" placeholder="Enter password">
+                </div>
+
+                <!-- PASTED HERE: Confirm Password Field -->
+                <div style="margin-bottom: 16px;">
+                    <label style="display: block; font-weight: 600; margin-bottom: 4px; color: #2F2A26;">Confirm Password:</label>
+                    <input type="password" name="confirm-password" placeholder="Confirm your password">
                 </div>
                 
                 <button type="submit" class="button">Submit Application</button>
