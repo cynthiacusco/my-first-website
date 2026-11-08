@@ -293,3 +293,53 @@ if (revealButton && tipParagraph) {
         }
     });
 }
+// ==========================================
+// 17. Accordion Control Management System
+// ==========================================
+
+// 1. Select all matching nodes on the page using querySelectorAll
+const accordionHeaders = document.querySelectorAll('.accordion-header');
+const accordionItems = document.querySelectorAll('.accordion-item');
+
+if (accordionHeaders.length >= 2 && accordionItems.length >= 2) {
+    // 2. Extract item elements explicitly out of their index lists
+    const header1 = accordionHeaders[0];
+    const header2 = accordionHeaders[1];
+    
+    const item1 = accordionItems[0];
+    const item2 = accordionItems[1];
+
+    // Trigger Path A: Clicked Header 1
+    header1.addEventListener('click', function() {
+        const isItem1Active = item1.classList.contains('active');
+
+        // Close all running panels to start fresh
+        item1.classList.remove('active');
+        item2.classList.remove('active');
+
+        // Open this panel only if it was previously closed
+        if (!isItem1Active) {
+            item1.classList.add('active');
+            console.log("🪗 Accordion Slot 1 expanded successfully.");
+        } else {
+            console.log("🪗 Accordion Slot 1 collapsed safely.");
+        }
+    });
+
+    // Trigger Path B: Clicked Header 2
+    header2.addEventListener('click', function() {
+        const isItem2Active = item2.classList.contains('active');
+
+        // Close all running panels to start fresh
+        item1.classList.remove('active');
+        item2.classList.remove('active');
+
+        // Open this panel only if it was previously closed
+        if (!isItem2Active) {
+            item2.classList.add('active');
+            console.log("🪗 Accordion Slot 2 expanded successfully.");
+        } else {
+            console.log("🪗 Accordion Slot 2 collapsed safely.");
+        }
+    });
+}

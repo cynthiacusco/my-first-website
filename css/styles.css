@@ -378,3 +378,41 @@ footer {
   margin-top: 32px;
   width: 100%;
 }
+/* ==========================================
+   7. LESSON PRACTICE: ACCORDION PANEL STYLES
+   ========================================== */
+.accordion {
+  border: 1px solid #FFFFFF;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #FFFFFF;
+}
+
+.accordion-header {
+  width: 100%;
+  padding: 16px;
+  text-align: left;
+  background-color: #F7F4EB !important; /* Soft warm light cream background */
+  color: #2F2A26 !important;
+  border: none !important;
+  border-bottom: 1px solid #E9E4D5 !important;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 16px;
+  display: block;
+}
+
+/* The standard closed roller-shade settings */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  padding: 0 16px;
+  background-color: #FFFFFF;
+}
+
+/* The active state that rolls down the contents smoothly */
+.accordion-item.active .accordion-content {
+  max-height: 200px; /* Expands to its natural text size */
+  padding: 16px;
+}
