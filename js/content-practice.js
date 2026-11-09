@@ -343,3 +343,53 @@ if (accordionHeaders.length >= 2 && accordionItems.length >= 2) {
         }
     });
 }
+// ==========================================
+// 18. Tab Content Swapper System Logic
+// ==========================================
+
+// 1. Select each tab trigger button node group using attribute selectors
+const btnHTML = document.querySelector('[data-tab="html"]');
+const btnCSS = document.querySelector('[data-tab="css"]');
+const btnJS = document.querySelector('[data-tab="js"]');
+
+// 2. Select each content pane node explicitly by their unique element IDs
+const panelHTML = document.getElementById('html');
+const panelCSS = document.getElementById('css');
+const panelJS = document.getElementById('js');
+
+// 3. Clear Function: Sweeps away all old '.active' marker tags
+function clearTabs() {
+    if (btnHTML && btnCSS && btnJS && panelHTML && panelCSS && panelJS) {
+        btnHTML.classList.remove('active');
+        btnCSS.classList.remove('active');
+        btnJS.classList.remove('active');
+
+        panelHTML.classList.remove('active');
+        panelCSS.classList.remove('active');
+        panelJS.classList.remove('active');
+    }
+}
+
+// 4. Attach Click Event Handlers for each path track option
+if (btnHTML && btnCSS && btnJS) {
+    btnHTML.addEventListener('click', function() {
+        clearTabs(); // Clear previous layouts
+        btnHTML.classList.add('active');
+        panelHTML.classList.add('active');
+        console.log("🗂️ View Switched -> HTML Tab Panel Active.");
+    });
+
+    btnCSS.addEventListener('click', function() {
+        clearTabs();
+        btnCSS.classList.add('active');
+        panelCSS.classList.add('active');
+        console.log("🗂️ View Switched -> CSS Tab Panel Active.");
+    });
+
+    btnJS.addEventListener('click', function() {
+        clearTabs();
+        btnJS.classList.add('active');
+        panelJS.classList.add('active');
+        console.log("🗂️ View Switched -> JavaScript Tab Panel Active.");
+    });
+}

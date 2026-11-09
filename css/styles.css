@@ -416,3 +416,28 @@ footer {
   max-height: 200px; /* Expands to its natural text size */
   padding: 16px;
 }
+/* ==========================================
+   8. LESSON PRACTICE: DYNAMIC CONTENT TABS
+   ========================================== */
+.tab-button {
+  background-color: #F7F4EB;
+  color: #2F2A26;
+  transition: all 0.2s ease;
+}
+
+/* Active Highlight Filter Tab Rule */
+.tab-button.active {
+  background-color: #0bc4a3 !important; /* Changes the active tab header to your brand aqua green! */
+  color: #FFFFFF !important;
+  border-color: #0bc4a3 !important;
+}
+
+/* Hide all panels by default factory settings */
+.tab-panel {
+  display: none;
+}
+
+/* Bring only the active single panel element onto the screen card layout view */
+.tab-panel.active {
+  display: block !important;
+}

@@ -155,7 +155,36 @@
         </div>
     </div>
 </section>
+<!-- Inside content-practice.html (Place above your form section) -->
+<section>
+    <h2>Lesson Practice: Content Tab Switcher</h2>
+    <p>Click the navigation tabs below to swap hidden data blocks inside a single container space card.</p>
+    
+    <div class="tabs">
+        <!-- The Tab List Navigation Menu Buttons -->
+        <div class="tab-list" style="display: flex; gap: 8px; border-bottom: 2px solid #E9E4D5; margin-bottom: 16px;">
+            <button class="tab-button active" data-tab="html" style="padding: 10px 20px; cursor: pointer; border: 1px solid #E9E4D5; border-bottom: none; border-radius: 6px 6px 0 0; font-weight: bold;">HTML</button>
+            <button class="tab-button" data-tab="css" style="padding: 10px 20px; cursor: pointer; border: 1px solid #E9E4D5; border-bottom: none; border-radius: 6px 6px 0 0; font-weight: bold;">CSS</button>
+            <button class="tab-button" data-tab="js" style="padding: 10px 20px; cursor: pointer; border: 1px solid #E9E4D5; border-bottom: none; border-radius: 6px 6px 0 0; font-weight: bold;">JavaScript</button>
+        </div>
 
+        <!-- The Individual Tab Content Panels -->
+        <div class="tab-panels" style="background-color: #FFFFFF; padding: 20px; border-radius: 8px; border: 1px solid #E9E4D5;">
+            <div class="tab-panel active" id="html">
+                <h3>HTML Structure</h3>
+                <p>HTML provides the fundamental skeleton blueprint framework structure for all web documents.</p>
+            </div>
+            <div class="tab-panel" id="css">
+                <h3>CSS Styling Layouts</h3>
+                <p>CSS controls visual presentation adjustments, responsive grids, typography selections, and color palettes.</p>
+            </div>
+            <div class="tab-panel" id="js">
+                <h3>JavaScript Interactivity Behavior</h3>
+                <p>JavaScript processes application logic statements, tracks states, and manages live runtime component events.</p>
+            </div>
+        </div>
+    </div>
+</section>
 
     <!-- External Script Bridge Link -->
     <script src="js/content-practice.js"></script> 
