@@ -220,7 +220,6 @@ document.addEventListener('keydown', function(event) {
 // ==========================================
 const profileForm = document.getElementById('practice-form');
 
-// Our reusable checklist inspector function
 function validateSandboxForm() {
     const emailValue = profileForm.elements['email'].value;
     const firstNameValue = profileForm.elements['first-name'].value;
@@ -228,43 +227,33 @@ function validateSandboxForm() {
     const passwordValue = profileForm.elements['password'].value;
     const confirmPasswordValue = profileForm.elements['confirm-password'].value;
 
-    // Rule 1: Check if Name fields are empty (using .trim())
     if (firstNameValue.trim() === '' || lastNameValue.trim() === '') {
         return { valid: false, message: 'First name and last name are strictly required!' };
     }
 
-    // Rule 2: Check if email is empty
     if (emailValue.trim() === '') {
         return { valid: false, message: 'Email address cannot be submitted empty!' };
     }
 
-    // Rule 3: Check if email has the @ symbol format
     if (!emailValue.includes('@')) {
         return { valid: false, message: 'Please enter a valid email address containing an @ symbol.' };
     }
 
-    // Rule 4: Enforce minimum length on password
     if (passwordValue.length < 8) {
         return { valid: false, message: 'Security check failed: Password must be at least 8 characters long.' };
     }
 
-    // Rule 5: Compare password values to ensure they match
     if (passwordValue !== confirmPasswordValue) {
         return { valid: false, message: 'Verification error: Passwords do not match!' };
     }
 
-    // Success: If it passes all if statements, return true!
     return { valid: true, message: 'All checks passed successfully! 🚀' };
 }
 
-// Attach the inspector execution to our submit action
 if (profileForm) {
     profileForm.addEventListener('submit', function(event) {
-        event.preventDefault(); // Freeze the default reload shield
-        
+        event.preventDefault(); 
         console.log("🚀 Running security checklist...");
-        
-        // Run our checklist function and store the object status package
         const resultPackage = validateSandboxForm();
         
         if (resultPackage.valid === false) {
@@ -282,10 +271,7 @@ const tipParagraph = document.getElementById('tip');
 
 if (revealButton && tipParagraph) {
     revealButton.addEventListener('click', function() {
-        // ONE LINE ENGINE: Flips the hidden layout rule on and off!
         tipParagraph.classList.toggle('hidden');
-        
-        // Dynamically update the button label text to match what is on screen
         if (tipParagraph.classList.contains('hidden')) {
             revealButton.textContent = "Show Tip";
         } else {
@@ -293,31 +279,24 @@ if (revealButton && tipParagraph) {
         }
     });
 }
+
 // ==========================================
 // 17. Accordion Control Management System
 // ==========================================
-
-// 1. Select all matching nodes on the page using querySelectorAll
 const accordionHeaders = document.querySelectorAll('.accordion-header');
 const accordionItems = document.querySelectorAll('.accordion-item');
 
 if (accordionHeaders.length >= 2 && accordionItems.length >= 2) {
-    // 2. Extract item elements explicitly out of their index lists
     const header1 = accordionHeaders[0];
     const header2 = accordionHeaders[1];
-    
     const item1 = accordionItems[0];
     const item2 = accordionItems[1];
 
-    // Trigger Path A: Clicked Header 1
     header1.addEventListener('click', function() {
         const isItem1Active = item1.classList.contains('active');
-
-        // Close all running panels to start fresh
         item1.classList.remove('active');
         item2.classList.remove('active');
 
-        // Open this panel only if it was previously closed
         if (!isItem1Active) {
             item1.classList.add('active');
             console.log("🪗 Accordion Slot 1 expanded successfully.");
@@ -326,15 +305,11 @@ if (accordionHeaders.length >= 2 && accordionItems.length >= 2) {
         }
     });
 
-    // Trigger Path B: Clicked Header 2
     header2.addEventListener('click', function() {
         const isItem2Active = item2.classList.contains('active');
-
-        // Close all running panels to start fresh
         item1.classList.remove('active');
         item2.classList.remove('active');
 
-        // Open this panel only if it was previously closed
         if (!isItem2Active) {
             item2.classList.add('active');
             console.log("🪗 Accordion Slot 2 expanded successfully.");
@@ -343,21 +318,18 @@ if (accordionHeaders.length >= 2 && accordionItems.length >= 2) {
         }
     });
 }
+
 // ==========================================
 // 18. Tab Content Swapper System Logic
 // ==========================================
-
-// 1. Select each tab trigger button node group using attribute selectors
 const btnHTML = document.querySelector('[data-tab="html"]');
 const btnCSS = document.querySelector('[data-tab="css"]');
 const btnJS = document.querySelector('[data-tab="js"]');
 
-// 2. Select each content pane node explicitly by their unique element IDs
 const panelHTML = document.getElementById('html');
 const panelCSS = document.getElementById('css');
 const panelJS = document.getElementById('js');
 
-// 3. Clear Function: Sweeps away all old '.active' marker tags
 function clearTabs() {
     if (btnHTML && btnCSS && btnJS && panelHTML && panelCSS && panelJS) {
         btnHTML.classList.remove('active');
@@ -370,10 +342,9 @@ function clearTabs() {
     }
 }
 
-// 4. Attach Click Event Handlers for each path track option
 if (btnHTML && btnCSS && btnJS) {
     btnHTML.addEventListener('click', function() {
-        clearTabs(); // Clear previous layouts
+        clearTabs();
         btnHTML.classList.add('active');
         panelHTML.classList.add('active');
         console.log("🗂️ View Switched -> HTML Tab Panel Active.");
@@ -393,65 +364,58 @@ if (btnHTML && btnCSS && btnJS) {
         console.log("🗂️ View Switched -> JavaScript Tab Panel Active.");
     });
 }
+
 // ==========================================
-// 19. JavaScript Object Profile Sandbox
+// 22. Persistent Shopping Cart Storage (Upgraded List Edition)
 // ==========================================
+const addItemButton = document.getElementById('add-item-btn');
+const clearCartButton = document.getElementById('clear-cart-btn');
+const cartDisplayParagraph = document.getElementById('cart-display');
 
-// 1. Create a dynamic profile object
-const developerProfile = {
-    name: "Cynthia Schubert",
-    currentFocus: "DOM Manipulation",
-    isCodingActive: true
-};
+const rawStoredCartData = localStorage.getItem("cart");
+let cartArrayMemory = [];
 
-// 2. Read properties using Dot Notation
-console.log("👤 Profile Target Loaded Name: " + developerProfile.name);
+if (rawStoredCartData !== null) {
+    cartArrayMemory = JSON.parse(rawStoredCartData);
+}
 
-// 3. Update and expand properties live
-developerProfile.currentFocus = "Objects and Arrays Mastery"; // Update
-developerProfile.currentLanguage = "JavaScript";              // Add new
+function displayCurrentCartText() {
+    if (cartDisplayParagraph) {
+        if (cartArrayMemory.length === 0) {
+            cartDisplayParagraph.textContent = "Cart is empty.";
+        } else {
+            let humanReadableText = "";
+            
+            cartArrayMemory.forEach(function(item, index) {
+                const itemNumber = index + 1;
+                humanReadableText += `${itemNumber}. ${item.name} — $${item.price} (Added at ${item.timestamp})\n`;
+            });
+            
+            cartDisplayParagraph.innerText = humanReadableText;
+        }
+    }
+}
 
-console.log("🚀 Updated Focus Target:", developerProfile.currentFocus);
-console.log("📦 Full Live Object Structure Packet:", developerProfile);
-// ==========================================
-// 20. JavaScript Array Modification Sandbox
-// ==========================================
+displayCurrentCartText();
 
-// 1. Setup a clean string list array
-const shoppingList = ["Milk", "Eggs", "Bread"];
+if (addItemButton) {
+    addItemButton.addEventListener('click', function() {
+        const mockProductItem = {
+            name: "T-Shirt",
+            price: 24.99,
+            timestamp: new Date().toLocaleTimeString()
+        };
+        
+        cartArrayMemory.push(mockProductItem);
+        localStorage.setItem("cart", JSON.stringify(cartArrayMemory));
+        displayCurrentCartText();
+    });
+}
 
-console.log("🛒 Starting First Element [0]:", shoppingList[0]); // Outputs: Milk
-console.log("📏 Total Items in List (Length):", shoppingList.length); // Outputs: 3
-
-// 2. Play with the Station Crew tools live
-shoppingList.push("Apples"); // Slaps Apples onto the end
-console.log("➕ List After Push:", shoppingList); 
-
-shoppingList.shift(); // Unhooks the first item ("Milk")
-console.log("🧹 List After Shift:", shoppingList);
-
-// 3. Search the list using .includes()
-const hasEggs = shoppingList.includes("Eggs");
-console.log("🔍 Does our list contain 'Eggs'?:", hasEggs); // Outputs: true
-// ==========================================
-// 21. Browser Storage Persistence Sandbox
-// ==========================================
-
-// 1. Storing plain string values directly with setItem()
-localStorage.setItem("saved_username", "CynthiaSchubert");
-localStorage.setItem("sandbox_language", "English");
-
-console.log("💾 Text key-value data packets written to localStorage successfully.");
-
-// 2. Storing a complex object safely using JSON.stringify()
-const practiceUserSettings = {
-    themeMode: "Soft Warm Ivory",
-    fontSizePx: 16,
-    isValidationActive: true
-};
-
-// Convert our object to a flat text string layout before saving!
-const stringifiedSettings = JSON.stringify(practiceUserSettings);
-localStorage.setItem("user_settings_packet", stringifiedSettings);
-
-console.log("📦 Standardized JSON string version saved:", stringifiedSettings);
+if (clearCartButton) {
+    clearCartButton.addEventListener('click', function() {
+        localStorage.removeItem("cart");
+        cartArrayMemory = [];
+        displayCurrentCartText();
+    });
+}
