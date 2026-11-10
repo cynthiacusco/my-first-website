@@ -393,3 +393,65 @@ if (btnHTML && btnCSS && btnJS) {
         console.log("🗂️ View Switched -> JavaScript Tab Panel Active.");
     });
 }
+// ==========================================
+// 19. JavaScript Object Profile Sandbox
+// ==========================================
+
+// 1. Create a dynamic profile object
+const developerProfile = {
+    name: "Cynthia Schubert",
+    currentFocus: "DOM Manipulation",
+    isCodingActive: true
+};
+
+// 2. Read properties using Dot Notation
+console.log("👤 Profile Target Loaded Name: " + developerProfile.name);
+
+// 3. Update and expand properties live
+developerProfile.currentFocus = "Objects and Arrays Mastery"; // Update
+developerProfile.currentLanguage = "JavaScript";              // Add new
+
+console.log("🚀 Updated Focus Target:", developerProfile.currentFocus);
+console.log("📦 Full Live Object Structure Packet:", developerProfile);
+// ==========================================
+// 20. JavaScript Array Modification Sandbox
+// ==========================================
+
+// 1. Setup a clean string list array
+const shoppingList = ["Milk", "Eggs", "Bread"];
+
+console.log("🛒 Starting First Element [0]:", shoppingList[0]); // Outputs: Milk
+console.log("📏 Total Items in List (Length):", shoppingList.length); // Outputs: 3
+
+// 2. Play with the Station Crew tools live
+shoppingList.push("Apples"); // Slaps Apples onto the end
+console.log("➕ List After Push:", shoppingList); 
+
+shoppingList.shift(); // Unhooks the first item ("Milk")
+console.log("🧹 List After Shift:", shoppingList);
+
+// 3. Search the list using .includes()
+const hasEggs = shoppingList.includes("Eggs");
+console.log("🔍 Does our list contain 'Eggs'?:", hasEggs); // Outputs: true
+// ==========================================
+// 21. Browser Storage Persistence Sandbox
+// ==========================================
+
+// 1. Storing plain string values directly with setItem()
+localStorage.setItem("saved_username", "CynthiaSchubert");
+localStorage.setItem("sandbox_language", "English");
+
+console.log("💾 Text key-value data packets written to localStorage successfully.");
+
+// 2. Storing a complex object safely using JSON.stringify()
+const practiceUserSettings = {
+    themeMode: "Soft Warm Ivory",
+    fontSizePx: 16,
+    isValidationActive: true
+};
+
+// Convert our object to a flat text string layout before saving!
+const stringifiedSettings = JSON.stringify(practiceUserSettings);
+localStorage.setItem("user_settings_packet", stringifiedSettings);
+
+console.log("📦 Standardized JSON string version saved:", stringifiedSettings);
