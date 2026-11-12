@@ -420,7 +420,7 @@ if (clearCartButton) {
     });
 }
 // ==========================================
-// 23. Data-Driven Template Function Practice (Multiple Products)
+// 23. Data-Driven Template Function (map + join)
 // ==========================================
 const productList = [
     { name: "Wireless Keyboard", price: 49.99 },
@@ -439,11 +439,10 @@ function createProductHTML(product) {
 
 const showcaseContainer = document.getElementById('product-showcase');
 if (showcaseContainer) {
-    // Clear the container first
-    showcaseContainer.innerHTML = "";
+    // 1. Transform each product object into an HTML card string
+    // 2. Join all strings together into one single block
+    const allCardsHTML = productList.map(item => createProductHTML(item)).join("");
     
-    // Loop through every product in the array and add its card
-    productList.forEach(function(item) {
-        showcaseContainer.innerHTML += createProductHTML(item);
-    });
+    // 3. Insert the finished HTML into the container once
+    showcaseContainer.innerHTML = allCardsHTML;
 }
