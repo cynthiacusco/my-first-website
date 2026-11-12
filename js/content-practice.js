@@ -419,3 +419,31 @@ if (clearCartButton) {
         displayCurrentCartText();
     });
 }
+// ==========================================
+// 23. Data-Driven Template Function Practice (Multiple Products)
+// ==========================================
+const productList = [
+    { name: "Wireless Keyboard", price: 49.99 },
+    { name: "Ergonomic Mouse", price: 29.99 },
+    { name: "USB-C Hub", price: 34.50 }
+];
+
+function createProductHTML(product) {
+    return `
+        <div style="background-color: #FFFFFF; padding: 16px; border-radius: 8px; border: 1px solid #E9E4D5; margin-bottom: 12px;">
+            <h3 style="margin-top: 0;">${product.name}</h3>
+            <p style="margin-bottom: 0; font-weight: bold; color: #0bc4a3;">Price: $${product.price.toFixed(2)}</p>
+        </div>
+    `;
+}
+
+const showcaseContainer = document.getElementById('product-showcase');
+if (showcaseContainer) {
+    // Clear the container first
+    showcaseContainer.innerHTML = "";
+    
+    // Loop through every product in the array and add its card
+    productList.forEach(function(item) {
+        showcaseContainer.innerHTML += createProductHTML(item);
+    });
+}
