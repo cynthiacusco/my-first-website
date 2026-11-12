@@ -420,29 +420,30 @@ if (clearCartButton) {
     });
 }
 // ==========================================
-// 23. Data-Driven Template Function (map + join)
+// 23. Data-Driven Template Function (Conditional Rendering)
 // ==========================================
 const productList = [
-    { name: "Wireless Keyboard", price: 49.99 },
-    { name: "Ergonomic Mouse", price: 29.99 },
-    { name: "USB-C Hub", price: 34.50 }
+    { name: "Wireless Keyboard", price: 49.99, inStock: true },
+    { name: "Ergonomic Mouse", price: 29.99, inStock: false },
+    { name: "USB-C Hub", price: 34.50, inStock: true }
 ];
 
 function createProductHTML(product) {
+    // Calculate the text and color before returning the HTML
+    const stockText = product.inStock ? "✅ In Stock" : "❌ Out of Stock";
+    const stockColor = product.inStock ? "#28a745" : "#dc3545";
+
     return `
         <div style="background-color: #FFFFFF; padding: 16px; border-radius: 8px; border: 1px solid #E9E4D5; margin-bottom: 12px;">
             <h3 style="margin-top: 0;">${product.name}</h3>
-            <p style="margin-bottom: 0; font-weight: bold; color: #0bc4a3;">Price: $${product.price.toFixed(2)}</p>
+            <p style="margin-bottom: 8px; font-weight: bold; color: #0bc4a3;">Price: $${product.price.toFixed(2)}</p>
+            <p style="margin: 0; font-weight: bold; color: ${stockColor};">${stockText}</p>
         </div>
     `;
 }
 
 const showcaseContainer = document.getElementById('product-showcase');
 if (showcaseContainer) {
-    // 1. Transform each product object into an HTML card string
-    // 2. Join all strings together into one single block
     const allCardsHTML = productList.map(item => createProductHTML(item)).join("");
-    
-    // 3. Insert the finished HTML into the container once
     showcaseContainer.innerHTML = allCardsHTML;
 }
