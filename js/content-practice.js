@@ -447,3 +447,118 @@ if (showcaseContainer) {
     const allCardsHTML = productList.map(item => createProductHTML(item)).join("");
     showcaseContainer.innerHTML = allCardsHTML;
 }
+// ==========================================
+// 24. Persistent Dark/Light Theme Switcher
+// ==========================================
+const themeToggle = document.getElementById('theme-toggle');
+
+// 1. Load saved choice immediately when the page opens
+function loadThemePreference() {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-theme');
+    }
+}
+loadThemePreference();
+
+// 2. Flip the theme and save the new choice on click
+if (themeToggle) {
+    themeToggle.addEventListener('click', function() {
+        const isDark = document.body.classList.contains('dark-theme');
+
+        if (isDark) {
+            document.body.classList.remove('dark-theme');
+            localStorage.setItem('theme', 'light');
+        } else {
+            document.body.classList.add('dark-theme');
+            localStorage.setItem('theme', 'dark');
+        }
+    });
+}
+// ==========================================
+// 25. Form State Persistence (Autosave)
+// ==========================================
+const sandboxForm = document.getElementById('practice-form');
+
+if (sandboxForm) {
+    const firstNameField = sandboxForm.elements['first-name'];
+    const emailField = sandboxForm.elements['email'];
+
+    // 1. Save every keystroke immediately
+    if (firstNameField) {
+        firstNameField.addEventListener('input', function() {
+            localStorage.setItem('savedFirstName', firstNameField.value);
+        });
+    }
+
+    if (emailField) {
+        emailField.addEventListener('input', function() {
+            localStorage.setItem('savedEmail', emailField.value);
+        });
+    }
+
+    // 2. Restore saved drafts when the page loads
+    function loadSavedDrafts() {
+        const storedName = localStorage.getItem('savedFirstName');
+        const storedEmail = localStorage.getItem('savedEmail');
+
+        if (storedName && firstNameField) {
+            firstNameField.value = storedName;
+        }
+        if (storedEmail && emailField) {
+            emailField.value = storedEmail;
+        }
+    }
+
+    loadSavedDrafts();
+}
+// ==========================================
+// 26. Persistent Saved List (Application State)
+// ==========================================
+let savedItems = [];
+
+const itemInput = document.getElementById('item-input');
+const addItemBtn = document.getElementById('add-btn');
+const itemListEl = document.getElementById('item-list');
+
+// 1. Save the entire array as a JSON string
+function saveList() {
+    localStorage.setItem('mySavedList', JSON.stringify(savedItems));
+}
+
+// 2. Render each item as an <li> inside the <ul>
+function renderList() {
+    if (!itemListEl) return;
+    itemListEl.innerHTML = '';
+    
+    savedItems.forEach(function(itemText) {
+        const li = document.createElement('li');
+        li.textContent = itemText;
+        itemListEl.appendChild(li);
+    });
+}
+
+// 3. Load saved JSON string on page open and parse it back into an array
+function loadList() {
+    const stored = localStorage.getItem('mySavedList');
+    if (stored) {
+        savedItems = JSON.parse(stored);
+    }
+    renderList();
+}
+
+// 4. Read input, update array, save, and re-render
+if (addItemBtn && itemInput) {
+    addItemBtn.addEventListener('click', function() {
+        const text = itemInput.value.trim();
+        if (text !== '') {
+            savedItems.push(text);
+            saveList();
+            renderList();
+            itemInput.value = ''; // Clear input box for next item
+        }
+    });
+}
+
+// Run immediately when the page loads
+loadList();
